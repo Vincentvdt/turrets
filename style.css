@@ -1,0 +1,63 @@
+
+body {
+    overflow: hidden;
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+#root {
+    width: 100%;
+    height: 100vh;
+}
+
+.turret {
+    z-index: 9999;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border-radius: 100%;
+    background-color: black;
+    transition: background-color 100ms;
+}
+
+.turret::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    background-color: black;
+    width: 30%;
+    height: 30%;
+    top: 50%;
+    right: -25%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    transition: background-color 100ms;
+}
+
+.turret.triggered, .turret.triggered::after {
+    background-color: red;
+}
+
+.turret .zone {
+    content: '';
+
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    border-radius: 100%;
+}
+
+.turret p {
+    position: absolute;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    font-size: 0.7rem;
+    top: 90%;
+    left: 50%;
+}
+
+.turret .zone:hover {
+    cursor: crosshair;
+}
+
